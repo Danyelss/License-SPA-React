@@ -5,7 +5,7 @@ const Context = createContext();
 export const useThemeContext = () => useContext(Context);
 
 export default function ThemeContext({ children }) {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
 
   const isLight = useMemo(() => theme === 'light', [theme]);
 

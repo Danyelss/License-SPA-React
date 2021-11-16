@@ -24,7 +24,7 @@ const Footer = () => {
       <nav>
         <div>{new Date().getFullYear()} &copy; your copyright</div>
         <div>
-          <a href="https://github.com/ofnullable/react-spa-template" rel="noopener noreferrer" target="_blank">
+          <a href="https://github.com/Danyelss/React-Website-Project" rel="noopener noreferrer" target="_blank">
             <GithubIcon className="github" />
           </a>
         </div>

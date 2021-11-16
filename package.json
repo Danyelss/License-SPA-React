@@ -1,5 +1,6 @@
 {
-  "name": "react-spa-template",
+  "hompage": "https://Danyelss.github.io/License-SPA-React",
+  "name": "license-spa-react",
   "engines": {
     "node": ">=10",
     "npm": ">=6"
@@ -75,6 +76,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-    "hompage": "https://Danyelss/github.io/License-SPA-React"
+  }
 }

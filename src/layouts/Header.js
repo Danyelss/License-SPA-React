@@ -62,8 +62,8 @@ const Header = () => {
       <nav>
         <div className="logo">
           <Link to="/" replace={pathname === '/'}>
-            <LogoIcon />
-            brand
+            {/* how to link pages */}
+
           </Link>
         </div>
         <div>
