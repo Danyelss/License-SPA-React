@@ -20,23 +20,23 @@ export const palette = {
 
 export default {
   base: {
-    light: css`
-      color: ${palette.gray[9]};
-      background: ${palette.gray[1]};
-    `,
     dark: css`
-      color: ${palette.gray[1]};
-      background: ${palette.gray[9]};
+        color: ${palette.gray[1]};
+        background: ${palette.gray[9]};
+    `,
+    light: css`
+        color: ${palette.gray[9]};
+        background: ${palette.gray[1]};
     `,
   },
   primary: {
-    light: css`
-      color: #fff;
-      background: #000;
-    `,
     dark: css`
-      color: #fff;
-      background: #000;
+        color: #fff;
+        background: #000;
+    `,
+    light: css`
+        color: #fff;
+        background: #000;
     `,
   },
 };

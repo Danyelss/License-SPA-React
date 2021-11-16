@@ -12,7 +12,18 @@ const HomePageStyle = css`
 const HomePage = () => {
   return (
     <div css={[HomePageStyle]}>
-      <h1 className="title">Hello React!</h1>
+
+    <div class="square slide-bottom">
+            <h1>Wallet</h1>
+    </div>
+    <div class="square slide-bottom">
+        <h1>asa</h1>
+
+    </div>
+    <div class="square slide-bottom">
+        <h1>asa</h1>
+    </div>
+
     </div>
   );
 };
