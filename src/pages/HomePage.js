@@ -7,6 +7,10 @@ const HomePageStyle = css`
     font-weight: 600;
     text-align: center;
   }
+
+  .square {
+    background-color: transparent;
+  }
 `;
 
 const HomePage = () => {
@@ -17,11 +21,11 @@ const HomePage = () => {
             <h1>Wallet</h1>
     </div>
     <div class="square slide-bottom">
-        <h1>asa</h1>
+        <h1>Deposit</h1>
 
     </div>
     <div class="square slide-bottom">
-        <h1>asa</h1>
+        <h1>Withdraw</h1>
     </div>
 
     </div>

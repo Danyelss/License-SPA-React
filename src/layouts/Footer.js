@@ -22,7 +22,7 @@ const Footer = () => {
   return (
     <footer css={[footerStyle]}>
       <nav>
-        <div>{new Date().getFullYear()} &copy; your copyright</div>
+        <div> </div>
         <div>
           <a href="https://github.com/Danyelss/React-Website-Project" rel="noopener noreferrer" target="_blank">
             <GithubIcon className="github" />
