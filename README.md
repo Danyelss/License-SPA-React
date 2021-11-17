@@ -51,9 +51,7 @@ Creating a Production Build. The build artifacts will be stored in the `dist/` d
 ### Deploy github pages
 
 ```json
-# edit package.json
 {
-  ...
   "hompage": "https://{github username}/github.io/{repository name}",
 }
 ```

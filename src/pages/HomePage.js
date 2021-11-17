@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import walletIcon  from '../assets/wallet.png'
 
 const HomePageStyle = css`
   h1 {
@@ -18,7 +19,7 @@ const HomePage = () => {
     <div css={[HomePageStyle]}>
 
     <div class="square slide-bottom">
-            <h1>Wallet</h1>
+            <img  src={walletIcon} alt="fireSpot"/>
     </div>
     <div class="square slide-bottom">
         <h1>Deposit</h1>
