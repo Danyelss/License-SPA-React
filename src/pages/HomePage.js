@@ -1,6 +1,8 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import walletIcon  from '../assets/wallet.png'
+import { ReactComponent as VaultIcon }  from '../assets/vault.svg';
+import axios from 'axios';
+import login from '../requests/PostAxios';
 
 const HomePageStyle = css`
   h1 {
@@ -14,23 +16,30 @@ const HomePageStyle = css`
   }
 `;
 
+const api = axios.create({
+    baseURL: 'http://localhost:8081/'
+})
+
 const HomePage = () => {
+    login();
+
   return (
     <div css={[HomePageStyle]}>
 
     <div class="square slide-bottom">
-            <img  src={walletIcon} alt="fireSpot"/>
+            <VaultIcon class="vault"/>
     </div>
-    <div class="square slide-bottom">
-        <h1>Deposit</h1>
+    <div class="circle slide-bottom">
+        <h1></h1>
 
     </div>
-    <div class="square slide-bottom">
-        <h1>Withdraw</h1>
+    <div class="triangle-down slide-bottom">
+        <h1></h1>
     </div>
 
     </div>
   );
 };
+
 
 export default HomePage;
