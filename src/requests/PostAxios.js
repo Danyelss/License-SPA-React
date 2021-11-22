@@ -6,30 +6,26 @@ const api = axios.create({
     baseURL: 'http://localhost:8081/api/'
 })
 
-let headers = new Headers();
+const params = new URLSearchParams()
+params.append('username', 'beni');
+params.append('password', '0000');
 
-headers.append('Content-Type', 'application/json');
-headers.append('Accept', 'application/json');
+const config = {
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+}
 
-headers.append('Access-Control-Allow-Origin', 'http://localhost:8082');
-headers.append('Access-Control-Allow-Credentials', 'true');
+const url = 'https://license-cors-proxy.herokuapp.com/https://license-crypto-bank.herokuapp.com/api/login';
 
     const login = async () => {
-        axios({
-          method: 'post',     //put
-          url: 'https://license-cors-proxy.herokuapp.com/https://license-crypto-bank.herokuapp.com/api/login',
-          headers: {},
-          data: {
-             username: 'beni',
-             password: '0000'
-          }
-        })
-        .then(res => {
-          console.log("res", res.data.message);
-        })
-        .catch(err => {
-          console.log("error in request", err);
-        });
+        axios.post(url, params, config)
+            .then((result) => {
+                console.log(result);
+            })
+            .catch((err) => {
+              // Do somthing
+            })
     };
 
     export default login;
