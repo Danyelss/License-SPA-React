@@ -28,10 +28,10 @@ const HomePage = () => {
     <div css={[HomePageStyle]}>
 
     <div class="square slide-bottom">
-            <VaultIcon class="vaultLogo"/>
+            <VaultIcon class="vaultLogo" onClick={login}/>
     </div>
-    <div class="deposit slide-bottom">
-    <EthDepositIcon class="depositLogo"/>
+    <div class="deposit slide-bottom shadow">
+    <EthDepositIcon class="depositLogo" onClick={login}/>
         <h1></h1>
 
     </div>
