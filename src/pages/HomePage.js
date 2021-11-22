@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { ReactComponent as VaultIcon }  from '../assets/vault.svg';
+import { ReactComponent as EthDepositIcon }  from '../assets/ethDeposit.svg';
 import axios from 'axios';
 import login from '../requests/PostAxios';
 
@@ -27,9 +28,10 @@ const HomePage = () => {
     <div css={[HomePageStyle]}>
 
     <div class="square slide-bottom">
-            <VaultIcon class="vault"/>
+            <VaultIcon class="vaultLogo"/>
     </div>
-    <div class="circle slide-bottom">
+    <div class="deposit slide-bottom">
+    <EthDepositIcon class="depositLogo"/>
         <h1></h1>
 
     </div>

@@ -84,6 +84,24 @@ a {
     filter: drop-shadow( 0px 0px 20px #000000);
     }
 
+.deposit {
+text-align: center;
+    align-items: center;
+
+    position: relative;
+    top: 100px;
+    vertical-align: bottom;
+    display: inline-block;
+    height: 350px;
+    width: 350px;
+    padding: 0px;
+    margin: 30px;
+    background-color: transparent;
+        filter: inset drop-shadow( 0px 0px 20px #000000);
+
+
+}
+
 .slide-bottom {
 	-webkit-animation: slide-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s reverse both;
 	        animation: slide-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s reverse both;
