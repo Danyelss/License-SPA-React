@@ -17,8 +17,7 @@ headers.append('Access-Control-Allow-Credentials', 'true');
     const login = async () => {
         axios({
           method: 'post',     //put
-          //url: 'https://license-cors-proxy.herokuapp.com/http://localhost:8081/api/login',
-          url: 'https://license-cors-proxy.herokuapp.com/http://www.google.com',
+          url: 'https://license-cors-proxy.herokuapp.com/https://license-crypto-bank.herokuapp.com/api/login',
           headers: {},
           data: {
              username: 'beni',
