@@ -2,6 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { ReactComponent as VaultIcon }  from '../assets/vault.svg';
 import { ReactComponent as EthDepositIcon }  from '../assets/ethDeposit.svg';
+import { ReactComponent as WithdrawIcon }  from '../assets/withdrawIcon.svg';
 import axios from 'axios';
 import login from '../requests/PostAxios';
 
@@ -28,15 +29,15 @@ const HomePage = () => {
     <div css={[HomePageStyle]}>
 
     <div class="square slide-bottom">
-            <VaultIcon class="vaultLogo" onClick={login}/>
+        <VaultIcon class="vaultLogo" onClick={login}/>
     </div>
-    <div class="deposit slide-bottom shadow">
-    <EthDepositIcon class="depositLogo" onClick={login}/>
-        <h1></h1>
 
+    <div class="deposit slide-bottom shadow">
+        <EthDepositIcon class="depositLogo" onClick={login}/>
     </div>
-    <div class="triangle-down slide-bottom">
-        <h1></h1>
+
+    <div class="withdraw slide-bottom">
+        <WithdrawIcon class="withdrawLogo" onClick={login}/>
     </div>
 
     </div>
