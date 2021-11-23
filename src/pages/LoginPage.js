@@ -3,8 +3,8 @@ import { css } from '@emotion/react';
 import { ReactComponent as VaultIcon }  from '../assets/vault.svg';
 import { ReactComponent as EthDepositIcon }  from '../assets/ethDeposit.svg';
 import { ReactComponent as WithdrawIcon }  from '../assets/withdrawIcon.svg';
-import axios from 'axios';
 import login from '../requests/PostAxios';
+import PropTypes from 'prop-types';
 
 const LoginPageStyle = css`
   h1 {
@@ -13,30 +13,62 @@ const LoginPageStyle = css`
     text-align: center;
   }
 
-  .square {
-    background-color: transparent;
+  .login-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
   }
 
 `;
 
-const LoginPage = () => {
+async function loginUser(credentials) {
+ return fetch('http://localhost:8082/login', {
+   method: 'POST',
+   headers: {
+     'Content-Type': 'application/json'
+   },
+   body: JSON.stringify(credentials)
+ })
+   .then(data => data.json())
+}
 
-    const [email, setEmail] = useState("");
-      const [password, setPassword] = useState("");
+export default function LoginPage({ setToken }) {
+  const [username, setUserName] = useState();
+  const [password, setPassword] = useState();
 
-      function validateForm() {
-        return email.length > 0 && password.length > 0;
-      }
+  const handleSubmit = async e => {
+    e.preventDefault();
 
-      function handleSubmit(event) {
-        event.preventDefault();
-      }
+    const token = await loginUser({
+      username,
+      password
+    });
 
-  return (
+    setToken(token.token);
+  }
+
+  return(
   <div css={[LoginPageStyle]}>
-
+    <div className="login-wrapper square">
+      <h1>Log In</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          <p>Username</p>
+          <input type="text" onChange={e => setUserName(e.target.value)} />
+        </label>
+        <label>
+          <p>Password</p>
+          <input type="password" onChange={e => setPassword(e.target.value)} />
+        </label>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
   </div>
-  );
-};
+  )
+}
 
-export default LoginPage;
+LoginPage.propTypes = {
+  setToken: PropTypes.func.isRequired
+};
