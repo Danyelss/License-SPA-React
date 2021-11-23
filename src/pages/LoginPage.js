@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react";
 import { css } from '@emotion/react';
 import { ReactComponent as VaultIcon }  from '../assets/vault.svg';
 import { ReactComponent as EthDepositIcon }  from '../assets/ethDeposit.svg';
@@ -16,29 +16,27 @@ const LoginPageStyle = css`
   .square {
     background-color: transparent;
   }
+
 `;
 
 const LoginPage = () => {
-    login();
+
+    const [email, setEmail] = useState("");
+      const [password, setPassword] = useState("");
+
+      function validateForm() {
+        return email.length > 0 && password.length > 0;
+      }
+
+      function handleSubmit(event) {
+        event.preventDefault();
+      }
 
   return (
-    <div css={[LoginPageStyle]}>
+  <div css={[LoginPageStyle]}>
 
-    <div class="square slide-bottom">
-        <VaultIcon class="vaultLogo" onClick={login}/>
-    </div>
-
-    <div class="deposit slide-bottom">
-        <EthDepositIcon class="depositLogo" onClick={login}/>
-    </div>
-
-    <div class="withdraw slide-bottom">
-        <WithdrawIcon class="withdrawLogo" onClick={login}/>
-    </div>
-
-    </div>
+  </div>
   );
 };
-
 
 export default LoginPage;
