@@ -24,7 +24,7 @@ const Footer = () => {
       <nav>
         <div> </div>
         <div>
-          <a href="https://github.com/Danyelss/React-Website-Project" rel="noopener noreferrer" target="_blank">
+          <a href="https://github.com/Danyelss/License-SPA-React" rel="noopener noreferrer" target="_blank">
             <GithubIcon className="github" />
           </a>
         </div>
