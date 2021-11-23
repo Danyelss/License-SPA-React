@@ -18,10 +18,6 @@ const HomePageStyle = css`
   }
 `;
 
-const api = axios.create({
-    baseURL: 'http://localhost:8081/'
-})
-
 const HomePage = () => {
     login();
 

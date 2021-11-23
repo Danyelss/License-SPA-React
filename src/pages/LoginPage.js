@@ -6,7 +6,7 @@ import { ReactComponent as WithdrawIcon }  from '../assets/withdrawIcon.svg';
 import axios from 'axios';
 import login from '../requests/PostAxios';
 
-const HomePageStyle = css`
+const LoginPageStyle = css`
   h1 {
     font-size: 5rem;
     font-weight: 600;
@@ -18,15 +18,11 @@ const HomePageStyle = css`
   }
 `;
 
-const api = axios.create({
-    baseURL: 'http://localhost:8081/'
-})
-
-const HomePage = () => {
+const LoginPage = () => {
     login();
 
   return (
-    <div css={[HomePageStyle]}>
+    <div css={[LoginPageStyle]}>
 
     <div class="square slide-bottom">
         <VaultIcon class="vaultLogo" onClick={login}/>
@@ -45,4 +41,4 @@ const HomePage = () => {
 };
 
 
-export default HomePage;
+export default LoginPage;
