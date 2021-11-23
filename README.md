@@ -8,6 +8,7 @@ $ npm run start
 ```
 
 Run dev server on [http://localhost:8080](http://localhost:8080)
+Running on [https://danyelss.github.io/License-SPA-React/#/login](https://danyelss.github.io/License-SPA-React/#/login)
 
 ### Build
 
@@ -15,14 +16,14 @@ Run dev server on [http://localhost:8080](http://localhost:8080)
 $ npm run build
 ```
 
-### Deploy github pages
+### Deploy GitHub pages
 
 Creating a Production Build. The build artifacts will be stored in the dist/ directory.
 
 ```json
 
 {
-  "hompage": "https://{github username}/github.io/{repository name}",
+  "hompage": "https://{github username}/github.io/{repository name}"
 }
 ```
 
