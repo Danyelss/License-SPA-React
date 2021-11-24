@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import {    Switch,
             Route,
+            Routes,
             BrowserRouter
         } from 'react-router-dom';
 
@@ -13,12 +14,30 @@ const LoginPage = lazy(() => import('../pages/LoginPage'));
 
 function PrivateRoute({ children }) {
   //const auth = getToken(); /////////////////////////////////////////
+  const auth = "a";
   return auth ? children : <Navigate to="/login" />;
 }
 
 const Routes = () => {
 
   return (
+  <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/home"
+              element={
+                <PrivateRoute>
+                  <HomePage />
+                </PrivateRoute>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+  );
+};
+
+/*
     <Suspense fallback={<div />}>
       <Switch>
         <Route exact path="/home" component={HomePage} />
@@ -26,23 +45,6 @@ const Routes = () => {
         <Route component={(_) => <ErrorPage status={404} message="Page not found." />} />
       </Switch>
     </Suspense>
-  );
-};
-
-/*
-<BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route
-            path="/private"
-            element={
-              <PrivateRoute>
-                <HomePage />
-              </PrivateRoute>
-            }
-          />
-        </Routes>
-      </BrowserRouter>
     */
 
 export default Routes;
