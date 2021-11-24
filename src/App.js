@@ -4,8 +4,9 @@ import {
   Route,
   BrowserRouter,
   Link,
-  Navigate,
-  Outlet
+ Navigate,
+  Outlet,
+  Redirect
 } from "react-router-dom";
 
 //import Routes from './routes';
@@ -13,66 +14,45 @@ import AppLayout from './layouts/AppLayout';
 import ThemeProvider from './contexts/ThemeContext';
 import './styles/index.scss';
 
-const HomePage = lazy(() => import('./pages/HomePage'));
-const ErrorPage = lazy(() => import('./pages/ErrorPage'));
-const LoginPage = lazy(() => import('./pages/LoginPage'));
-/*
-<ThemeProvider>
-  <AppLayout>
- </AppLayout>
-         </ThemeProvider>
-         */
+import useToken from './token/Tokens';
+
+import HomePage from './pages/HomePage';
+import ErrorPage from './pages/ErrorPage';
+import LoginPage from './pages/LoginPage';
+
 export default function App() {
   return (
+    <ThemeProvider>
+        <BrowserRouter>
+            <AppLayout>
+                <Routes>
+                    {/*<Route path="/" element={<LoginPage />} />*/}
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/404" element={<ErrorPage />} />
+                    <Route path="*" element={<Navigate replace to="/404" />} />
+                    <Route
+                        path="/home"
+                            element={
+                                <PrivateRoute>
+                                    <HomePage />
+                                </PrivateRoute>
+                                }
+                            />
+                </Routes>
+            </AppLayout>
 
-    <BrowserRouter>
-      <MyMenu />
-      <Routes>
-        <Route path="/" element={<Public />} />
-        <Route path="/private-outlet" element={<PrivateOutlet />}>
-          <Route path="" element={<Private />} />
-        </Route>
-        <Route
-          path="/private-nested"
-          element={
-            <PrivateRoute>
-              <Private />
-            </PrivateRoute>
-          }
-        />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </BrowserRouter>
-
+        </BrowserRouter>
+    </ThemeProvider>
   );
-}
-
-const Public = () => <div>public</div>;
-const Private = () => <div>private</div>;
-const Login = () => <div>login</div>;
-
-function PrivateOutlet() {
-  const auth = useAuth();
-  return auth ? <Outlet /> : <Navigate to="/login" />;
 }
 
 function PrivateRoute({ children }) {
-  const auth = useAuth();
+
+  const tokenFunction = useToken();
+
+
+  const auth = true;
+  //const auth = tokenFunction.getToken();
+  console.log(auth);
   return auth ? children : <Navigate to="/login" />;
-}
-
-function useAuth() {
-  return true;
-}
-
-function MyMenu() {
-  return (
-    <nav>
-      <Link to="/">Public</Link>
-      {" | "}
-      <Link to="/private-nested">Private Using Nested</Link>
-      {" | "}
-      <Link to="/private-outlet">Private Using Outlet</Link>
-    </nav>
-  );
 }

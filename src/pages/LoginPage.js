@@ -5,7 +5,7 @@ import { ReactComponent as EthDepositIcon }  from '../assets/ethDeposit.svg';
 import { ReactComponent as WithdrawIcon }  from '../assets/withdrawIcon.svg';
 import login from '../requests/PostAxios';
 import PropTypes from 'prop-types';
-import {setToken} from '../token/Tokens';
+import useToken from '../token/Tokens';
 
 const LoginPageStyle = css`
   h1 {
@@ -33,9 +33,12 @@ async function loginUser(credentials) {
    .then(data => data.json())
 }
 
-export default function LoginPage({ setToken }) {
+export default function LoginPage() {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
+
+  const tokenFunction = useToken();
+  console.log(tokenFunction);
 
   const handleSubmit = async e => {
       e.preventDefault();
@@ -44,9 +47,9 @@ export default function LoginPage({ setToken }) {
         password
       });
 
-      console.log(token.token);
+      //console.log(token.token);
 
-      setToken.setToken(token.token);
+      tokenFunction.setToken(token.token);
     }
 
   return(
@@ -70,7 +73,3 @@ export default function LoginPage({ setToken }) {
   </div>
   )
 }
-
-LoginPage.propTypes = {
-  setToken: PropTypes.func.isRequired
-};
