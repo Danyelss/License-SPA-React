@@ -1,7 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-
 const HomePage = lazy(() => import('../pages/HomePage'));
 const ErrorPage = lazy(() => import('../pages/ErrorPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));

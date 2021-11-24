@@ -5,6 +5,7 @@ import { ReactComponent as EthDepositIcon }  from '../assets/ethDeposit.svg';
 import { ReactComponent as WithdrawIcon }  from '../assets/withdrawIcon.svg';
 import login from '../requests/PostAxios';
 import PropTypes from 'prop-types';
+import {setToken} from '../token/Tokens';
 
 const LoginPageStyle = css`
   h1 {
@@ -37,15 +38,16 @@ export default function LoginPage({ setToken }) {
   const [password, setPassword] = useState();
 
   const handleSubmit = async e => {
-    e.preventDefault();
+      e.preventDefault();
+      const token = await loginUser({
+        username,
+        password
+      });
 
-    const token = await loginUser({
-      username,
-      password
-    });
+      console.log(token.token);
 
-    setToken(token.token);
-  }
+      setToken.setToken(token.token);
+    }
 
   return(
   <div css={[LoginPageStyle]}>
@@ -61,7 +63,7 @@ export default function LoginPage({ setToken }) {
           <input type="password" onChange={e => setPassword(e.target.value)} />
         </label>
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit" onSubmit={handleSubmit}>Submit</button>
         </div>
       </form>
     </div>

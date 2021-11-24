@@ -5,18 +5,11 @@ import AppLayout from './layouts/AppLayout';
 import ThemeProvider from './contexts/ThemeContext';
 import LoginPage from './pages/LoginPage';
 import './styles/index.scss';
-
-function setToken(userToken) {
-  sessionStorage.setItem('token', JSON.stringify(userToken));
-}
-
-function getToken() {
-  const tokenString = sessionStorage.getItem('token');
-  const userToken = JSON.parse(tokenString);
-  return userToken?.token
-}
+import getToken from './token/Tokens';
+import setToken from './token/Tokens';
 
 function App() {
+
     const token = getToken();
 
     if(!token) {

@@ -19,21 +19,19 @@ const HomePageStyle = css`
 `;
 
 const HomePage = () => {
-    login();
-
   return (
     <div css={[HomePageStyle]}>
 
     <div class="square slide-bottom">
-        <VaultIcon class="vaultLogo" onClick={login}/>
+        <VaultIcon className="vaultLogo" onClick={login}/>
     </div>
 
     <div class="deposit slide-bottom">
-        <EthDepositIcon class="depositLogo" onClick={login}/>
+        <EthDepositIcon className="depositLogo" onClick={login}/>
     </div>
 
     <div class="withdraw slide-bottom">
-        <WithdrawIcon class="withdrawLogo" onClick={login}/>
+        <WithdrawIcon className="withdrawLogo" onClick={login}/>
     </div>
 
     </div>
