@@ -26,7 +26,7 @@ export default function App() {
         <BrowserRouter>
             <AppLayout>
                 <Routes>
-                    <Route path="/" element={<HomePage />} />
+                    {/*<Route path="/" element={<HomePage />} />*/}
                     <Route exact path="/login" element={<LoginPage />} />
                     <Route exact path="/404" element={<ErrorPage />} />
                     <Route path="*" element={<Navigate replace to="/404" />} />

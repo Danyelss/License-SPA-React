@@ -1,10 +1,12 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { ReactComponent as VaultIcon }  from '../svgs/vault.svg';
-import { ReactComponent as EthDepositIcon }  from '../svgs/ethDeposit.svg';
-import { ReactComponent as WithdrawIcon }  from '../svgs/withdrawIcon.svg';
+import { ReactComponent as EthDepositIcon }  from '../svgs/deposit.svg';
+import { ReactComponent as WithdrawIcon }  from '../svgs/withdraw.svg';
+//import WithdrawIcon  from '../svgs/test.png';
 import axios from 'axios';
 import login from '../requests/PostAxios';
+import '../index.css';
 
 const HomePageStyle = css`
   h1 {
@@ -14,7 +16,12 @@ const HomePageStyle = css`
   }
 
   .square {
-    background-color: transparent;
+    background-color: red;
+  }
+
+  .postItem img {
+    width: 350px;
+    height: 350px;
   }
 `;
 
@@ -22,21 +29,43 @@ const HomePage = () => {
   return (
     <div css={[HomePageStyle]}>
 
-    <div class="square slide-bottom">
-        <VaultIcon className="vaultLogo" onClick={login}/>
-    </div>
+    <h1>adsasda</h1>
 
-    <div class="deposit slide-bottom">
-        <EthDepositIcon className="depositLogo" onClick={login}/>
-    </div>
+    <Vault />
 
-    <div class="withdraw slide-bottom">
-        <WithdrawIcon className="withdrawLogo" onClick={login}/>
-    </div>
+    <Deposit />
+
+    <Withdraw />
 
     </div>
   );
 };
 
+function Vault () {
+    return (
+        <div className="square slide-bottom">
+            <VaultIcon className="shadow" />
+        </div>
+
+    );
+}
+
+function Deposit () {
+    return (
+        <div className="shadow deposit slide-bottom">
+            <EthDepositIcon className="shadow"/>
+        </div>
+
+    );
+}
+
+function Withdraw () {
+    return (
+        <div className="withdraw slide-bottom">
+            <WithdrawIcon className="shadow"/>
+        </div>
+
+    );
+}
 
 export default HomePage;
