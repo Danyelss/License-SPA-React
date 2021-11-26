@@ -28,6 +28,11 @@ const loaders = {
 };
 
 module.exports = {
+    devServer: {
+        port: 3000,
+        historyApiFallback: true
+      },
+
   mode: prod ? 'production' : 'development',
   devtool: prod ? false : 'eval-source-map',
   entry: {
