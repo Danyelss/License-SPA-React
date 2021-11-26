@@ -26,21 +26,11 @@ export default function App() {
         <BrowserRouter>
             <AppLayout>
                 <Routes>
-                    {/*<Route path="/" element={<LoginPage />} />*/}
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route path="/404" element={<ErrorPage />} />
-                    <Route path="*" element={<Navigate replace to="/404" />} />
-                    <Route
-                        path="/home"
-                            element={
-                                <PrivateRoute>
-                                    <HomePage />
-                                </PrivateRoute>
-                                }
-                            />
+                    <Route exact path={"/"} element={<HomePage />} />
+                    <Route exact path={"/about"} element={<About />} />
+
                 </Routes>
             </AppLayout>
-
         </BrowserRouter>
     </ThemeProvider>
   );
@@ -56,3 +46,35 @@ function PrivateRoute({ children }) {
   console.log(auth);
   return auth ? children : <Navigate to="/login" />;
 }
+
+function Home() {
+  return (
+    <div style={{ padding: 20 }}>
+      <h2>Home View</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
+    </div>
+  );
+}
+
+function About() {
+  return (
+    <div style={{ padding: 20 }}>
+      <h2>About View</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
+    </div>
+  );
+}
+
+/*
+<Route exact path="/login" element={<LoginPage />} />
+                    <Route exact path="/404" element={<ErrorPage />} />
+                    <Route path="*" element={<Navigate replace to="/404" />} />
+                    <Route
+                        path="/home"
+                            element={
+                                <PrivateRoute>
+                                    <HomePage />
+                                </PrivateRoute>
+                                }
+                            />
+                            */
